@@ -9,6 +9,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PhotoController;
 
+
+
 Route::resource('photos', PhotoController::class);
 
 Route::resource('photos', PhotoController::class)->only([
@@ -19,6 +21,9 @@ Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
 
+// Route::get('/greeting', function () {
+// 	return view('hello', ['name' => 'Devita']);
+// });
 
 //ArticleController
 Route::get('/articles/{id}', ArticleController::class);
@@ -76,7 +81,11 @@ Route::get('/hello', [WelcomeController::class,'hello']);
 
 // // Route untuk halaman artikel dengan parameter id
 // Route::get('/articles/{id}', [PageController::class, 'articles']);
+Route::get('/greeting', function () {
+	return view('blog.hello', ['name' => 'Devita Dwi']);
+});
 
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 
 
 /*
